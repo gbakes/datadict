@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div><h3>Events:</h3></div>
+    {% for event in events %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{  url_for('static', filename='profile_pics/' + event.author.image_file)  }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ event.author.username }}</a>
+              <small class="text-muted">{{ event.date_created.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{  url_for('event',event_id = event.id)  }}">{{ event.title }}</a></h2>
+            <p class="article-content">{{ event.description }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <div><h3>Sources:</h3></div>
+    {% for source in sources %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{  url_for('static', filename='profile_pics/' + source.author.image_file)  }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ source.author.username }}</a>
+              <small class="text-muted">{{ source.date_created.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{  url_for('source',source_id = source.id)  }}">{{ source.title }}</a></h2>
+           <span class="badge badge-primary">{{ source.type }}</span>
+            <p class="article-content">{{ source.description }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <div><h3>Properties:</h3></div>
+    {% for property in properties %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{  url_for('static', filename='profile_pics/' + property.author.image_file)  }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ property.author.username }}</a>
+              <small class="text-muted">{{ property.date_created.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{  url_for('property',property_id = property.id)  }}">{{ property.title }}</a></h2>
+           <span class="badge badge-primary">{{ property.type }}</span>
+            <p class="article-content">{{ property.description }}</p>
+          </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}

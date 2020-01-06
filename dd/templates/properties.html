@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Properties</h1>
+    <p>Here is a listing of all the properties.</p>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Property</th>
+                <th scope="col">Description</th>
+                <th scope="col">Events</th>
+                <th scope="col">Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for i in pt %}
+            <tr>
+                <th scope="row">{{  i[0]  }}</th>
+                <td>{{  i[1]  }}</td>
+                <td>{{  i[2]  }}</td>
+                <td>{{  i[3]  }}</td>
+                <td>{{  i[4]  }}</td>
+            </tr>
+
+            {%  endfor  %}
+{% endblock %}
